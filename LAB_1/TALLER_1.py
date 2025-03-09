@@ -1,7 +1,5 @@
-# Lista para almacenar la información de las personas
 directorio = []
 
-# Lista para almacenar los textos que se mostrarán en pantalla
 mensajes = [
     "Bienvenido al directorio telefónico.",
     "Digite el nombre y apellido de la persona: ",
@@ -13,10 +11,10 @@ mensajes = [
     "Registro eliminado exitosamente.",
     "Saliendo del programa...",
     "Opción no válida, por favor intente de nuevo.",
-    "El número de teléfono debe tener exactamente 10 dígitos."
+    "El número de teléfono debe tener exactamente 10 dígitos.",
+    "Formato de fecha incorrecto. Use el formato DD/MM/AAAA."
 ]
 
-# Función para mostrar el menú
 def mostrar_menu():
     print("\n--- Menú ---")
     print("1. Agregar un nuevo registro")
@@ -24,18 +22,19 @@ def mostrar_menu():
     print("3. Borrar un registro")
     print("4. Salir de la aplicación")
 
-# Función para validar el número de teléfono
 def validar_telefono(telefono):
-    # Verifica si el teléfono tiene exactamente 10 dígitos y es un número
     return telefono.isdigit() and len(telefono) == 10
 
-# Función para agregar un nuevo registro
+def validar_fecha(fecha):
+    if len(fecha) == 10 and fecha[2] == '/' and fecha[5] == '/':
+        dia, mes, anio = fecha.split('/')
+        return dia.isdigit() and mes.isdigit() and anio.isdigit()
+    return False
+
 def agregar_registro():
     persona = {}
     print(mensajes[1])
     persona['nombre'] = input()
-    
-    # Validación del número de teléfono
     while True:
         print(mensajes[2])
         telefono = input()
@@ -43,17 +42,20 @@ def agregar_registro():
             persona['telefono'] = int(telefono)
             break
         else:
-            print(mensajes[10])  # Mensaje de error: teléfono no válido
-    
-    print(mensajes[3])
-    persona['cumpleanos'] = input()
+            print(mensajes[10])  
+    while True:
+        print(mensajes[3])
+        cumpleanos = input()
+        if validar_fecha(cumpleanos):
+            persona['cumpleanos'] = cumpleanos
+            break
+        else:
+            print(mensajes[11])  
     print(mensajes[4])
     persona['correo'] = input()
-    
     directorio.append(persona)
-    print(mensajes[5])  # Mensaje de confirmación: registro agregado
+    print(mensajes[5])  
 
-# Función para buscar una persona por teléfono
 def buscar_por_telefono():
     while True:
         print("Digite el teléfono celular a buscar: ")
@@ -62,8 +64,7 @@ def buscar_por_telefono():
             telefono = int(telefono)
             break
         else:
-            print(mensajes[10])  # Mensaje de error: teléfono no válido
-    
+            print(mensajes[10])    
     for persona in directorio:
         if persona['telefono'] == telefono:
             print(f"Nombre: {persona['nombre']}")
@@ -71,9 +72,8 @@ def buscar_por_telefono():
             print(f"Cumpleaños: {persona['cumpleanos']}")
             print(f"Correo: {persona['correo']}")
             return
-    print(mensajes[6])  # Mensaje de error: no se encontró el teléfono
+    print(mensajes[6])  
 
-# Función para borrar un registro
 def borrar_registro():
     while True:
         print("Digite el teléfono celular del registro a borrar: ")
@@ -82,23 +82,20 @@ def borrar_registro():
             telefono = int(telefono)
             break
         else:
-            print(mensajes[10])  # Mensaje de error: teléfono no válido
-    
+            print(mensajes[10])  
     for persona in directorio:
         if persona['telefono'] == telefono:
             directorio.remove(persona)
-            print(mensajes[7])  # Mensaje de confirmación: registro eliminado
+            print(mensajes[7])  
             return
-    print(mensajes[6])  # Mensaje de error: no se encontró el teléfono
+    print(mensajes[6]) 
 
-# Función principal
 def main():
-    print(mensajes[0])  # Mensaje de bienvenida
+    print(mensajes[0])  
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
-        
-        # Validación de la opción del menú
+
         if opcion in ['1', '2', '3', '4']:
             if opcion == '1':
                 agregar_registro()
@@ -107,11 +104,10 @@ def main():
             elif opcion == '3':
                 borrar_registro()
             elif opcion == '4':
-                print(mensajes[8])  # Mensaje de despedida
+                print(mensajes[8])  
                 break
         else:
-            print(mensajes[9])  # Mensaje de error: opción no válida
-
-# Ejecutar el programa
+            print(mensajes[9]) 
+             
 if __name__ == "__main__":
     main()
