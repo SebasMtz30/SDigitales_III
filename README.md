@@ -1,4 +1,3 @@
 # SDigitales_III
-## Integrantes
-[Sebastian Camilo Martinez Gonzalez](https://github.com/SebasMtz30)
+[Laboratorio 1](/LAB_1)
 
