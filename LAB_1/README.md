@@ -39,18 +39,32 @@ El programa está organizado en las siguientes partes:
 
 3. Flujo del Programa:
 
-- El programa inicia mostrando un mensaje de bienvenida.
+- Se muestra un menú con las opciones disponibles para el usuario.
 
-- Luego, se muestra un menú con las opciones: agregar, buscar, borrar y salir.
+  ![Menu principal](/LAB_1/Imagenes/Menu_Principal.png)
 
-- Dependiendo de la opción seleccionada, el programa ejecuta la función correspondiente.
+- Luego solicita el nombre de la persona, valida el número de teléfono. Si no es válido, muestra un mensaje de error y pide el teléfono nuevamente.
+
+  ![Mensaje error](/LAB_1/Imagenes/Mensaje_Telefono.png)
+
+  Valida la fecha de cumpleaños. Si no es válida, muestra un mensaje de error y pide la fecha nuevamente, solicita el correo electrónico y almacena el registro en la lista directorio y muestra un mensaje de confirmación.
+
+  ![Registro](/LAB_1/Imagenes/Registro.png)
+
+- Para buscar el registro valida el número de teléfono. Si no es válido, muestra un mensaje de error y pide el teléfono nuevamente y si encuentra la persona, muestra su información. Si no, muestra un mensaje de error.
+
+    ![Buscar Registro](/LAB_1/Imagenes/Buscar_Registro.png)
+
+- Para borrar el registro valida el número de teléfono. Si no es válido, muestra un mensaje de error y pide el teléfono nuevamente. Si encuentra la persona, la elimina de la lista y muestra un mensaje de confirmación. Si no, muestra un mensaje de error.
+
+  ![Eliminar Registro](/LAB_1/Imagenes/Borrar_Registro.png)
 
 ## Detalles Adicionales
-- Persistencia de Datos: Los datos se almacenan en memoria (en una lista) durante la ejecución del programa. Si se cierra el programa, los datos se pierden. Para una versión más avanzada, se podrían guardar los datos en un archivo (por ejemplo, JSON o CSV).
+- Persistencia de Datos: Los datos se almacenan en memoria (en una lista) durante la ejecución del programa. Si se cierra el programa, los datos se pierden. 
 
 - Validaciones: El programa no incluye validaciones avanzadas (por ejemplo, verificar si el teléfono ya existe o si el correo tiene un formato válido). Esto se podría implementar en futuras versiones.
 
-- Interfaz de Usuario: El programa es una aplicación de consola, por lo que no tiene una interfaz gráfica. Sin embargo, es fácil de usar y sigue un flujo claro.
+- Interfaz de Usuario: El programa es una aplicación de consola, por lo que no tiene una interfaz gráfica.
 
 ## Cómo se Podría Emplear en la Vida Real
 Este programa es útil en situaciones donde se necesita gestionar un pequeño directorio de contactos de manera rápida y sencilla. Algunos casos de uso podrían ser:
@@ -67,12 +81,6 @@ Este programa es útil en situaciones donde se necesita gestionar un pequeño di
 
 - Tener a mano la información de contacto clave para comunicarse rápidamente.
 
-- Eventos o Comunidades:
-
-- Mantener un directorio de participantes en un evento, taller o comunidad.
-
-- Facilitar la comunicación entre los miembros.
-
 3. Educación:
 
 - Como herramienta de aprendizaje para estudiantes que están comenzando a programar en Python.
@@ -80,7 +88,7 @@ Este programa es útil en situaciones donde se necesita gestionar un pequeño di
 - Ejemplo práctico de cómo usar listas, diccionarios y funciones en un proyecto real.
 
 ## Ejemplo de Uso en la Vida Real
-Imagina que eres el organizador de un evento y necesitas mantener un registro de los participantes. Con este programa, podrías:
+Imagina que eres el organizador de un evento y necesitas mantener un registro de los participantes. Con este programa, se puede:
 
 - Agregar a cada participante con su nombre, teléfono, cumpleaños y correo.
 
